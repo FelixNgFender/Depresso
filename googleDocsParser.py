@@ -14,10 +14,14 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-def getIdFromUrl():
-    with open('the-zen-of-python.txt') as f:
-        contents = f.read()
-    url = getIdFromUrl(contents)
+import prediction
+
+
+def getIdFromUrl(url):
+    # with open('the-zen-of-python.txt') as f:
+    #     contents = f.read()
+    # url = getIdFromUrl(contents)
+    # url = 'https://docs.google.com/document/d/1W1zQptWSTjCS_EzvrMPFx-2jsh0Neqe5Ug3K8qquw2g/edit'
 
     if url.startswith("https://docs.google.com/document/d/"):
         id = url[35 : url.find("/", 35)]
@@ -71,7 +75,11 @@ def read_structural_elements(elements):
 
 SCOPES = 'https://www.googleapis.com/auth/documents.readonly'
 DISCOVERY_DOC = 'https://docs.googleapis.com/$discovery/rest?version=v1'
-DOCUMENT_ID = getIdFromUrl()
+DOCUMENT_ID = None
+
+def updateIdFromURL(url):
+    global DOCUMENT_ID
+    DOCUMENT_ID = getIdFromUrl(url)
 
 def main():
     """Uses the Docs API to print out the text of a document."""
@@ -79,8 +87,8 @@ def main():
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    if os.path.exists('ExtensionReadingInputTest/token.json'):
+        creds = Credentials.from_authorized_user_file('ExtensionReadingInputTest/token.json', SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -90,7 +98,7 @@ def main():
                 'client_secret_582987600031-02pt483eljqito783ob7jrfak0923a13.apps.googleusercontent.com.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open('token.json', 'w') as token:
+        with open('ExtensionReadingInputTest/token.json', 'w') as token:
             token.write(creds.to_json())
     service = build('docs', 'v1', credentials=creds)
 
@@ -100,6 +108,7 @@ def main():
     doc_content = document.get('body').get('content')
     bodyoutput = read_structural_elements(doc_content)
     print(bodyoutput)
+    print(prediction.predict(bodyoutput))
 
 
     # id_test = getIdFromUrl(
