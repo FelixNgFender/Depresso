@@ -1,35 +1,32 @@
-from flask import Flask, render_template, jsonify
-import time
-import subprocess
-import sys
+from flask import Flask, render_template, jsonify, request
+import googleDocsParser
+import quoteGenerator
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/_get_url')
+def _get_url():
+    url = request.args.get('url', default=None, type=str)
+    print("_get_url called!")
+    print(url)
+    googleDocsParser.updateIdFromURL(url)
+    raw_pred, dep_pred = googleDocsParser.parse()
+    response = jsonify({"raw_pred": str(raw_pred), "dep_pred": str(dep_pred)})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
-@app.route('/_get_data/', methods=['POST'])
-def _get_data():
-    #subprocess.run((["python3", "dep1.py"]))
-    #while(1):
-    #sys.stdout=open('result%s.txt' % scriptInstance,'w')
-    #sleep(1)
-#    subprocess.run((["python3", "dep2.py"]))
-#    f= open("extension/p","r")
-#
-#    #myList = [true, false]
-#    true=f.readline()
-#    false=f.readline()
-#    f.close()
-
-#    myList=["Total number of depressive queries in the latest searches :" + " "+ str(true)+ " ","Out of recent 1000 searches!!!"]
-#    return jsonify({'data': render_template('response.html', myList=myList)})
-    pass
-
+@app.route('/_get_quote')
+def _get_quote():
+    print("_get_quote called!")
+    quote = quoteGenerator.get_random_quote()
+    response = jsonify(quote)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == "__main__":
-#    subprocess.run((["python3", "dep1.py"]))
+    quoteGenerator.initialize_quotes()
     app.run(debug=True)

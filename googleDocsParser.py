@@ -73,7 +73,7 @@ def read_structural_elements(elements):
     return text
 
 
-SCOPES = 'https://www.googleapis.com/auth/documents.readonly'
+SCOPES = ['https://www.googleapis.com/auth/documents.readonly']
 DISCOVERY_DOC = 'https://docs.googleapis.com/$discovery/rest?version=v1'
 DOCUMENT_ID = None
 
@@ -81,14 +81,14 @@ def updateIdFromURL(url):
     global DOCUMENT_ID
     DOCUMENT_ID = getIdFromUrl(url)
 
-def main():
+def parse():
     """Uses the Docs API to print out the text of a document."""
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('ExtensionReadingInputTest/token.json'):
-        creds = Credentials.from_authorized_user_file('ExtensionReadingInputTest/token.json', SCOPES)
+    if os.path.exists('extension/token.json'):
+        creds = Credentials.from_authorized_user_file('extension/token.json', SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -98,7 +98,7 @@ def main():
                 'client_secret_582987600031-02pt483eljqito783ob7jrfak0923a13.apps.googleusercontent.com.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open('ExtensionReadingInputTest/token.json', 'w') as token:
+        with open('extension/token.json', 'w') as token:
             token.write(creds.to_json())
     service = build('docs', 'v1', credentials=creds)
 
@@ -108,11 +108,14 @@ def main():
     doc_content = document.get('body').get('content')
     bodyoutput = read_structural_elements(doc_content)
     print(bodyoutput)
-    print(prediction.predict(bodyoutput))
+    raw_pred = prediction.predict_raw(bodyoutput)
+    dep_pred = prediction.predict_depression(raw_pred)
+    print("raw_pred = %s, dep_pred = %s" % (raw_pred, dep_pred))
+    return raw_pred, dep_pred
 
 
     # id_test = getIdFromUrl(
     #     'https://docs.google.com/document/d/1W1zQptWSTjCS_EzvrMPFx-2jsh0Neqe5Ug3K8qquw2g/edit?fbclid=IwAR1EXDDtx9L_Jz9VWeSiJW8bXS_lYBAm4415nkkylo21d2fImDPfNlwrb5k')
 
 if __name__ == '__main__':
-    main()
+    parse()
