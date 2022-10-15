@@ -2,7 +2,7 @@
 
 .extension-window {
     align-items: center; 
-    background-color: var(--white); 
+    background-color: white;
     border: 1px none; 
     display: flex; 
     flex-direction: column; 
@@ -23,7 +23,7 @@
 }
 
 .ellipse-1 {
-    background-color: var(--white); 
+    background-color: white;
     border: 1px none; 
     border-radius: 64px; 
     height: 128px; 
@@ -44,9 +44,9 @@
 }
 
 .title {
-    color: var(--black); 
-    font-family: var(--font-family-inter); 
-    font-size: var(--font-size-xxx1);
+    color: black;
+    font-family: Inter;
+    font-size: 20px;
     letter-spacing: 0;
     font-weight: 400;
     left: 30px;
@@ -73,9 +73,9 @@
 }
 
 .dont-believe-us {
-    color: var(--black);
-    font-size: var(--font-size-xx1);
-    font-family: var(--font-family-inter);
+    color: black;
+    font-size: 16px;
+    font-family: Inter;
     font-weight: 300;
     letter-spacing: -0.17px;
     line-height: 42.5px;
@@ -103,9 +103,9 @@
 }
 
 .scan-again {    
-    color: var(--white); 
-    font-family: var(--font-family-inter); 
-    font-size: var(--font-size-xx1); 
+    color: white;
+    font-family: Inter;
+    font-size: 16px;
     font-weight: 400; 
     left: 49px;
     letter-spacing: -0.17px; 
@@ -117,10 +117,10 @@
 }
 
 .your-overall-d-rate-is {
-    color: var(--black);
+    color: black;
     align-self: flex-start; 
-    font-size: var(--font-size-x1); 
-    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-family: Inter;
     font-weight: 400;
     letter-spacing: 0; 
     margin-left: 30px;
@@ -144,12 +144,12 @@
 }
 
 .see-some-therapy { 
-    left: 185px; 
+    left: 165px;
     letter-spacing: -0.08px; 
     line-height: 42.5px; 
     position: absolute; 
     text-align: center; 
-    top: 48px; 
+    top: 55px;
     white-space: nowrap; 
 }
 
@@ -172,7 +172,7 @@
 }
 
 .ellipse-3 { 
-    background-color: #f7c844; 
+    background-color: #f7c844;
     border: 0px none; 
     border-radius: 4.17px; 
     height: 8px; 
@@ -181,7 +181,7 @@
 }
 
 .ellipse-1-1 {
-    background-color: #e05a33; 
+    background-color: #5ec282;
     border: 0px none; 
     border-radius: 4.17px; 
     height: 8px;
@@ -189,7 +189,7 @@
 }
 
 .ellipse-4 { 
-    background-color: #99c456; 
+    background-color: #f88c37;
     border: 0px none; 
     border-radius: 4.17px; 
     height: 8px; 
@@ -199,7 +199,7 @@
 
 
 .ellipse-5 {
-    background-color: #5ec282; 
+    background-color: #e05a33;
     border: 0px none; 
     border-radius: 4.17px; 
     height: 8px; 
@@ -208,7 +208,7 @@
 }
 
 .ellipse-2 {
-    background-color: #f88c37;
+    background-color: #99c456;
     border: 0px none; 
     border-radius: 4.17px; 
     height: 8px; 
@@ -222,14 +222,16 @@
     position: absolute; 
     top: 0; 
     width: 238px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .text-1 {
     font-weight: 700;
     left: 193px;
-    color: var(--black); 
-    font-family: var(--font-family-inter); 
-    font-size: var(--font-size-x1);
+    color: black;
+    font-family: Inter;
+    font-size: 14px;
     letter-spacing: -0.13px; 
     line-height: 42.5px; 
     position: absolute;
@@ -248,7 +250,7 @@
 }
 
 .ellipse-6 { 
-    background-color: var(--white);
+    background-color: white;
     border: 1px none;
     border-radius: 18.5px; 
     left: 192px; 
@@ -259,12 +261,12 @@
 }
 
 .youre-a-normal-being { 
-    left: 8; 
+    left: -38px;
     letter-spacing: -0.08px; 
     line-height: 42.5px; 
     position: absolute; 
     text-align: center; 
-    top: 47px; 
+    top: 55px;
     white-space: nowrap;
 }
 
@@ -295,8 +297,9 @@
 }
 
 .give-us-a-rate {
-    color: var(--black); 
-    font-family: var(--font-family-inter);
-    font-size: var(--font-size-1);
+    alignment: center;
+    color: black;
+    font-family: Inter;
+    font-size: 16px;
     font-weight: 100;
 }
