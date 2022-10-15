@@ -60,3 +60,5 @@ wcwidth==0.2.5
 Wikipedia-API==0.5.4
 wrapt==1.14.1
 zipp==3.9.0
+
+Flask~=2.2.2
