@@ -1,0 +1,29 @@
+{
+
+	"manifest_version": 2,
+	"name": "",
+	"description": "This extension is running the Python code.",
+	"version": "1.0",
+
+	"browser_action":
+	{
+		"default_icon": "Depresso-02.png",
+		"default_popup": "index.html"
+	},
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": true
+	},
+
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"background",
+		"notifications",
+		"storage",
+		"https://ajax.googleapis.com/",
+		"http://127.0.0.1:5000/",
+		"https://zenquotes.io/api/"
+	]
+}
