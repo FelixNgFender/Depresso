@@ -7,7 +7,7 @@
 
 	"browser_action":
 	{
-		"default_icon": "icon.png",
+		"default_icon": "Depresso-02.png",
 		"default_popup": "index.html"
 	},
 

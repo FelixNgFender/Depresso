@@ -113,9 +113,5 @@ def parse():
     print("raw_pred = %s, dep_pred = %s" % (raw_pred, dep_pred))
     return raw_pred, dep_pred
 
-
-    # id_test = getIdFromUrl(
-    #     'https://docs.google.com/document/d/1W1zQptWSTjCS_EzvrMPFx-2jsh0Neqe5Ug3K8qquw2g/edit?fbclid=IwAR1EXDDtx9L_Jz9VWeSiJW8bXS_lYBAm4415nkkylo21d2fImDPfNlwrb5k')
-
 if __name__ == '__main__':
     parse()

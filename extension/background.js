@@ -4,7 +4,7 @@ let quote = "";
 function showNotification() {
     let title = "Hello!";
     let body = quote;
-    let icon = "extension/icon.png";
+    let icon = "extension/Depresso-02.png";
     var notification = new Notification(
         title,
         {

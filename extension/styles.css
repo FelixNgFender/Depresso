@@ -72,7 +72,7 @@
     min-width: 293px;
 }
 
-.dont-believe-us {
+.support-us {
     color: black;
     font-size: 16px;
     font-family: Inter;
@@ -82,24 +82,33 @@
     min-height: 43px;
     min-width: 117px;
     text-align: center;
+    alignment: center;
     white-space: nowrap;
 }
 
 .overlap-group4 { 
     height: 43px;
     position: relative;
-    width: 165px;
+    width: 190px;
 }    
 
 .rectangle-2 {
     border-radius: 19px;
     height: 38px;
-    background-color: #ca7cd8; 
+    background-color: #f18256;
     border: 1px none; 
-    width: 165px;
-    left: 0;
+    width: 120px;
+    left: 0px;
     position: absolute;
     top: 4px;
+}
+
+.support-us-btn {
+    border-radius: 19px;
+    height: 38px;
+    background-color: #f18256;
+    border: 1px none;
+    width: 120px;
 }
 
 .scan-again {    
@@ -144,7 +153,7 @@
 }
 
 .see-some-therapy { 
-    left: 165px;
+    left: 200px;
     letter-spacing: -0.08px; 
     line-height: 42.5px; 
     position: absolute; 
@@ -261,7 +270,7 @@
 }
 
 .youre-a-normal-being { 
-    left: -38px;
+    left: -35px;
     letter-spacing: -0.08px; 
     line-height: 42.5px; 
     position: absolute; 
@@ -302,4 +311,10 @@
     font-family: Inter;
     font-size: 16px;
     font-weight: 100;
+}
+
+#github {
+    height: 50px;
+    width: 50px;
+    left: 35px;
 }
