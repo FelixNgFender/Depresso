@@ -19,7 +19,7 @@ Approach
 indicate low levels of depression, while a rating of 10 indicates otherwise.
   - Depresso suggests professional resources if the user wants additional support.
 - Backend
-  - The backend consists of a natural language processing model (NLP) to classify depression levels.
+  - The backend consists of a natural language processing model (NLP) to classify depression levels and a Flask server to bridge the NLP and frontend.
   - User-produced text is extracted using Google Docs API.
   - The textual data retrieved is analyzed using the NLP algorithm to produce a prediction
   
